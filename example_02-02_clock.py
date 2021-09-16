@@ -60,3 +60,4 @@ for i, dpi in enumerate(dpi_list):
     axs[i % 4].set_yticks([])
 plt.savefig("example_02-02_clock.tif")
 plt.show()
+
