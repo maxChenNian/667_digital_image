@@ -32,7 +32,7 @@ def add_mean_noise(im_gray, sigma=8, k=1, k2=1):
         add_im_noise = add_im_noise + \
                        add_gauss_noise(im_gray, sigma, k).astype("float32")
 
-    mean_im_noise = add_im_noise / k
+    mean_im_noise = add_im_noise / k2
     return mean_im_noise.astype("uint8")
 
 
@@ -48,22 +48,31 @@ for i in range(200):
     nums.append(random.gauss(mu, sigma))
 
 galaxy_noise_im = add_gauss_noise(im_ori_gray, 64, 1)
-galaxy_denoise_im = add_mean_noise(im_ori_gray, 64, 1, k2=100)
 
 # 确定显示的画幅
 fig, axs = plt.subplots(nrows=2,
-                        ncols=2,
+                        ncols=3,
                         tight_layout=True,
                         num="IMAGE_PREPROCESS_METHOD",  # 整幅图的名字，可以使用数字
-                        figsize=(7, 5),  # 整幅图物理尺寸，宽高单位英寸
-                        dpi=200  # 每英寸物理尺寸含有的像素点的数量
+                        figsize=(5, 4),  # 整幅图物理尺寸，宽高单位英寸
+                        dpi=400  # 每英寸物理尺寸含有的像素点的数量
                         )
-axs[0, 0].plot(nums)
-axs[0, 1].hist(nums)
-axs[1, 0].imshow(cv2.cvtColor(galaxy_noise_im, cv2.COLOR_GRAY2RGB))
-axs[1, 0].set_title("mu=0 sigma=64")
-axs[1, 0].axis("off")
-axs[1, 1].imshow(cv2.cvtColor(galaxy_denoise_im, cv2.COLOR_GRAY2RGB))
-axs[1, 1].set_title("mu=0 sigma=64")
-axs[1, 1].axis("off")
+k2_list = [5, 10, 20, 50, 100]
+for i in range(0, 6, 1):
+    if i == 0:
+        axs[i // 3, i % 3].imshow(
+            cv2.cvtColor(galaxy_noise_im, cv2.COLOR_GRAY2RGB))
+        axs[i // 3, i % 3].set_title("noise im", fontsize='medium')
+        # axs[i // 3, i % 3].text(x=10, y=40, s="mu=0 sigma=64", fontsize='medium',
+        #                         color="black",
+        #                         bbox=dict(facecolor='1', edgecolor='none', pad=1))
+        axs[i // 3, i % 3].axis("off")
+    else:
+        axs[i // 3, i % 3].imshow(
+            cv2.cvtColor(add_mean_noise(im_ori_gray, 64, 1, k2=k2_list[i - 1]),
+                         cv2.COLOR_GRAY2RGB))
+        axs[i // 3, i % 3].set_title(f"mean_nums={str(k2_list[i - 4])}",
+                                     fontsize='medium')
+        axs[i // 3, i % 3].axis("off")
+plt.savefig("a000_001_output_image/a010_02-05_noisey_pic.tif")
 plt.show()
