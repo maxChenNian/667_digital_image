@@ -1,3 +1,14 @@
+"""
+工程项目：
+1. 监控摄像单帧图像亮度计算
+
+功能模块：
+1. threading 多线程进行图像处理，提升视频显示的速度
+2. opencv 将图像帧存储成视频格式
+3. exec 执行字符串代码行，目的按顺序生成新变量名
+"""
+
+
 import cv2
 import numpy as np
 import pathlib

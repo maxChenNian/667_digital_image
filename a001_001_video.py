@@ -1,10 +1,18 @@
+"""
+工程项目：
+1. 监控摄像单帧图像亮度计算
+
+功能模块：
+1. opencv 监控视频读取并进行展示
+2. for 循环依次处理多个视频帧，并进行视频展示
+"""
+
 import cv2
 import numpy as np
 import pathlib
 import matplotlib.pyplot as plt
 import time
 import threading
-
 
 
 def brightness(frame):

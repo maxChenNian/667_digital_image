@@ -1,3 +1,12 @@
+"""
+工程项目：
+1. 监控摄像单帧图像亮度计算
+
+功能模块：
+1. logitech 摄像头的视频读取和显示
+2. opencv 设置显示窗口的大小和位置
+"""
+
 import cv2
 import numpy as np
 
