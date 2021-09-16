@@ -30,36 +30,35 @@ angiography_im = angiography_live_im.astype(
 angiography_im = angiography_im + np.abs(np.min(np.min(angiography_im)))
 angiography_im = angiography_im / (np.max(np.max(angiography_im))) * 255
 
-plt.imshow(angiography_im.astype("uint8"))
-plt.show()
+# plt.imshow(angiography_im.astype("uint8"))
+# plt.show()
 
-# 直方图均衡化
+# 直方图均衡化,图像增强
 clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-# img_equalized = np.empty(angiography_im[:, :, 0].shape)
-img_equalized = clahe.apply(angiography_im[:, :, 0].astype("uint8"), dtype=np.uint8)
+img_equalized = clahe.apply(angiography_im[:, :, 0].astype("uint8"))
 
-plt.imshow(img_equalized.astype("uint8"))
-plt.show()
-
-
+# plt.imshow(cv2.cvtColor(img_equalized, cv2.COLOR_GRAY2RGB))
+# plt.show()
 
 # 确定显示的画幅
 fig, axs = plt.subplots(nrows=1,
                         ncols=4,
                         tight_layout=True,
                         num="IMAGE_PREPROCESS_METHOD",  # 整幅图的名字，可以使用数字
-                        figsize=(6, 2),  # 整幅图物理尺寸，宽高单位英寸
+                        figsize=(6, 1.8),  # 整幅图物理尺寸，宽高单位英寸
                         dpi=200  # 每英寸物理尺寸含有的像素点的数量
                         )
 axs[0].imshow(angiography_mask_im)
+axs[0].set_title("mask image", fontsize='medium')
 axs[0].axis("off")
 axs[1].imshow(angiography_live_im)
+axs[1].set_title("live image", fontsize='medium')
 axs[1].axis("off")
-
-axs[2].imshow(np.abs(angiography_live_im - angiography_mask_im))
+axs[2].imshow(angiography_im.astype("uint8"))
+axs[2].set_title("angiography", fontsize='medium')
 axs[2].axis("off")
-
-axs[3].imshow(angiography_mask_im - angiography_live_im)
+axs[3].imshow(cv2.cvtColor(img_equalized, cv2.COLOR_GRAY2RGB))
+axs[3].set_title("angio enhancement", fontsize='medium')
 axs[3].axis("off")
-
+plt.savefig("a000_001_output_image/a010_02-06_image_enhancement2.tif")
 plt.show()
