@@ -1,3 +1,8 @@
+"""
+功能模块：
+1. 对 8bits 灰度图进行分割，分成 1bit-8bit 二值图
+
+"""
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
