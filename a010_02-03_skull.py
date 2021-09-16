@@ -43,7 +43,7 @@ for i, gray_level in enumerate(gray_levels):
     # im_save_name = "example_02-03_skull_" + str("%03d" % gray_level) + ".bmp"
     # cv2.imwrite(im_save_name, im_gray_out)
 
-plt.savefig("example_02-03_skull.tif")
+plt.savefig("a000_001_output_image/a010_02-03_skull.tif")
 plt.show()
 
 
