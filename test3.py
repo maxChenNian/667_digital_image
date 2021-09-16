@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 im = cv2.imread(
-    "a000_001_Digital_image_processing_image/DIP3E_Original_Images_CH02/Fig0227(a)(washington_infrared).tif")
+    "a000_000_Digital_image_processing_image/DIP3E_Original_Images_CH02/Fig0227(a)(washington_infrared).tif")
 
 im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 

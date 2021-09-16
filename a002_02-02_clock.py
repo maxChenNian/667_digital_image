@@ -6,7 +6,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-im_path = 'a000_001_Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
+im_path = 'a000_000_Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
           'Fig0220(a)(chronometer 3692x2812  2pt25 inch 1250 dpi).tif'
 im = cv2.imread(im_path)
 # cv2.imwrite('im000_1250dpi.bmp', im)
@@ -51,13 +51,14 @@ for i, dpi in enumerate(dpi_list):
         im_resize = cv2.resize(im, (int(im_ori_col * dpi / 1250),
                                     int(im_ori_row * dpi / 1250)),
                                interpolation=cv2.INTER_NEAREST)
-    im_save_name = "example_02-02_clock_" + str("%03d" % i) + ".bmp"
-    cv2.imwrite(im_save_name, im_resize)
+    # im_save_name = "a000_001_output_image/" + \
+    #                "example_02-02_clock_" + str("%03d" % i) + ".bmp"
+    # cv2.imwrite(im_save_name, im_resize)
     axs[i % 4].imshow(im_resize)
     axs[i % 4].set_title(str(dpi) + "dpi")
     # axs[i % 4].axis('off')
     axs[i % 4].set_xticks([])
     axs[i % 4].set_yticks([])
-plt.savefig("example_02-02_clock.tif")
+plt.savefig("a000_001_output_image/a002_02-02_clock.tif")
 plt.show()
 

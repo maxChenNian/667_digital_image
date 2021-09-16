@@ -4,7 +4,7 @@
 import cv2
 import matplotlib.pyplot as plt
 
-im_ori_path = 'a000_001_Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
+im_ori_path = 'a000_000_Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
               'Fig0221(a)(ctskull-256).tif'
 im_ori_BGR = cv2.imread(im_ori_path)
 
