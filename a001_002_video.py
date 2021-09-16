@@ -66,7 +66,7 @@ def output_video(video_path, window_num):
     # fourcc = cv2.VideoWriter_fourcc(*"mp4v")
     video = cv2.VideoWriter(name, fourcc, fps, (ww, hh))
     y0 = 10
-    x0 = 300
+    x0 = 50
     while cap.isOpened():
         _, frame = cap.read()
         # print(frame_ori.shape)
@@ -75,7 +75,7 @@ def output_video(video_path, window_num):
         text = "Intensity: " + str(int(average_v))
         ret = cv2.putText(frame, text, (y0, x0),
                           cv2.FONT_HERSHEY_DUPLEX,
-                          3, (10, 255, 10), 4)
+                          1, (10, 255, 10), 2)
         # nihao = np.zeros((200, 200)).astype("uint8")
         video.write(ret)
         # iiii += 1
@@ -92,8 +92,8 @@ class myThread(threading.Thread):
 
     def run(self):
         print("开始线程：" + self.threadID)
-        # video_imshow(self.video_path, self.window_num)
-        output_video(self.video_path, self.window_num)
+        video_imshow(self.video_path, self.window_num)
+        # output_video(self.video_path, self.window_num)
         print("退出线程：" + self.threadID)
 
 
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     #     cv2.moveWindow(window_name, col, row)
 
     # 获取视频
-    mp4_path = 'D:/000_download/11'
+    mp4_path = 'D:/000_download/33'
     mp4_file_list = sorted(pathlib.Path(mp4_path).glob("*.mp4"))
     cap_list = []
 
