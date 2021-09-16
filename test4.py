@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 im_dollar = cv2.imread(
-    "Digital_image_processing_image/DIP3E_Original_Images_CH03/Fig0314(a)(100-dollars).tif")
+    "a000_001_Digital_image_processing_image/DIP3E_Original_Images_CH03/Fig0314(a)(100-dollars).tif")
 
 im_dollar_gray = cv2.cvtColor(im_dollar, cv2.COLOR_BGR2GRAY)
 

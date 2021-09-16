@@ -6,7 +6,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-im_path = 'Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
+im_path = 'a000_001_Digital_image_processing_image/DIP3E_Original_Images_CH02/' \
           'Fig0220(a)(chronometer 3692x2812  2pt25 inch 1250 dpi).tif'
 im = cv2.imread(im_path)
 # cv2.imwrite('im000_1250dpi.bmp', im)
