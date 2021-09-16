@@ -1,4 +1,0 @@
-"""
-nihao
-"""
-import cv2
