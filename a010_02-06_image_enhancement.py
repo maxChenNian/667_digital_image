@@ -12,12 +12,12 @@ im2 = im_gray.astype('float32')
 im3 = im2 - im2 % 2
 plt.imshow(im3.astype("uint8"))
 plt.show()
-cv2.imwrite("nnnnn.png", im3.astype("uint8"))
+# cv2.imwrite("nnnnn.png", im3.astype("uint8"))
 
 im4 = (im2 - im3) * 255
 plt.imshow(im4.astype("uint8"))
 plt.show()
-cv2.imwrite("nnhao.png", im4.astype("uint8"))
+# cv2.imwrite("nnhao.png", im4.astype("uint8"))
 rows, cols = np.shape(im2)
 
 # 确定显示的画幅
