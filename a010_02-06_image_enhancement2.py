@@ -1,23 +1,11 @@
 """
 功能模块：
 1. opencv 对提取血管造影
+2. 自适应直方图均衡化
 """
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def clahe_equalized(imgs):
-    assert (len(imgs.shape) == 4)  # 4D arrays
-    assert (imgs.shape[3] == 1)  # check the channel is 1
-    # create a CLAHE object (Arguments are optional).
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-    imgs_equalized = np.empty(imgs.shape)
-    for i in range(imgs.shape[0]):
-        imgs_equalized[i, :, :, 0] = clahe.apply(
-            np.array(imgs[i, :, :, 0], dtype=np.uint8))
-    return imgs_equalized
-
 
 angiography_mask_im = cv2.imread(
     "a000_000_Digital_image_processing_image/DIP3E_Original_Images_CH02/Fig0228(a)(angiography_mask_image).tif")
