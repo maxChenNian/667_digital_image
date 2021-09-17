@@ -41,6 +41,5 @@ axs[2].axis("off")
 axs[3].imshow(cv2.cvtColor(img_equalized, cv2.COLOR_GRAY2RGB))
 axs[3].set_title("enhancement pic", fontsize='medium')
 axs[3].axis("off")
-
 plt.savefig("a000_001_output_image/a010_02-07_image_multiply1.tif")
 plt.show()

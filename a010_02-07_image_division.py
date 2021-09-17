@@ -35,6 +35,5 @@ axs[1].axis("off")
 axs[2].imshow(cv2.cvtColor(mul_im.astype("uint8"), cv2.COLOR_GRAY2RGB))
 axs[2].set_title("output pic", fontsize='medium')
 axs[2].axis("off")
-
 plt.savefig("a000_001_output_image/a010_02-07_image_multiply2.tif")
 plt.show()
