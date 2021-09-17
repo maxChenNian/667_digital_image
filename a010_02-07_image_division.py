@@ -1,6 +1,6 @@
 """
 功能模块：
-1. opencv 使用图像相乘来矫正图像的阴影
+1. opencv 利用mask提取图像中所需要的区域
 """
 import cv2
 import numpy as np
