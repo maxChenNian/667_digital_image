@@ -162,5 +162,5 @@ if __name__ == "__main__":
     axs[3].imshow(backward_im_lp)
     axs[3].set_title("lp rotation", fontsize='medium')
     axs[3].axis("off")
-    plt.savefig("a000_001_output_image/a010_02-08_z2_geometric_STAR.tif")
+    plt.savefig("a000_001_output_image/a010_02-08_z2_geometric_STAR.jpg")
     plt.show()
