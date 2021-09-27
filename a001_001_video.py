@@ -17,9 +17,11 @@ import threading
 
 def brightness(frame):
     frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    _, _, frame_v = cv2.split(frame_hsv)
+    _, _, frame_v = cv2.split(frame_hsv[50:150, :, :])
     # average_v = np.mean(frame_v.astype("float32")) // 32
     average_v = np.mean(frame_v.astype("float32"))
+    # plt.imshow(frame_v)
+    # plt.show()
     return average_v
 
 
@@ -64,7 +66,10 @@ while cap_list[0].isOpened():
                           cv2.FONT_HERSHEY_DUPLEX,
                           1, (10, 255, 10), 1)
         cv2.imshow(str(i + 1), ret)
-    print(time.time() - start_time)
+
+
+
+    # print(time.time() - start_time)
 
     iii += 1
 
