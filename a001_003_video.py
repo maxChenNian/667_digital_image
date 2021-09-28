@@ -26,8 +26,8 @@ def brightness(frame):
 
 def video_imshow(video_path, window_num):
     cap = cv2.VideoCapture(str(video_path))
-    y0 = 10
-    x0 = 80
+    # y0 = 10
+    # x0 = 80
 
     window_name = str(window_num + 1)
     cv2.namedWindow(window_name, 0)
@@ -66,7 +66,7 @@ def video_imshow(video_path, window_num):
                         cv2.FONT_HERSHEY_DUPLEX,
                         1, (0, 0, 0), 1)
 
-        cv2.imshow(str(window_num + 1), heat_img)
+        # cv2.imshow(str(window_num + 1), heat_img)
 
         if cv2.waitKey(10) == 113:  # 点击q的时候退出
             # cv2.destroyAllWindows()
@@ -119,34 +119,11 @@ class myThread(threading.Thread):
 
 
 if __name__ == "__main__":
-    # # 建立opencv窗口
-    # for i in range(11, -1, -1):
-    #     window_name = str(i + 1)
-    #     cv2.namedWindow(window_name, 0)
-    #     cv2.resizeWindow(window_name, 480, 340)
-    #     col = i % 4 * 480
-    #     row = i // 4 * 340
-    #     cv2.moveWindow(window_name, col, row)
 
     # 获取视频
     mp4_path = 'D:/000_download/11'
     mp4_file_list = sorted(pathlib.Path(mp4_path).glob("*.mp4"))
     cap_list = []
-
-    # cap1 = cv2.VideoCapture(str(mp4_file_list[0]))
-    # thread1 = myThread(1, str(mp4_file_list[0]), 0)
-    #
-    # cap2 = cv2.VideoCapture(str(mp4_file_list[1]))
-    # thread2 = myThread(2, str(mp4_file_list[1]), 1)
-    #
-    #
-    #
-    #
-    # thread1.start()
-    # thread2.start()
-    #
-    # thread1.join()
-    # thread2.join()
 
     for i, path in enumerate(mp4_file_list):
         # print(f'{"thread" + str(i + 1)} = myThread(1, str(path), {str(i)})')
@@ -158,18 +135,3 @@ if __name__ == "__main__":
 
     for i in range(len(mp4_file_list)):
         exec(f'{"thread" + str(i + 1)}.join()')
-
-    #     if i == 0 or i == 2:
-    #         print(str(path))
-    #         cap = cv2.VideoCapture(str(path))
-    #         # thread1 = myThread(i + 1, str(path), i)
-    #         exec(f'{"thread" + str(i + 1)} = myThread(1, "{str(path)}", {str(i)})')
-    #
-    # thread1.start()
-    # thread1.join()
-
-    # print(f'{"thread" + str(i + 1)} = myThread(1, r"{str(path)}", {str(i)})')
-    #
-    # exec(f'{"thread" + str(i + 1)} = myThread(1, "{str(path)}", {str(i)})')
-    # exec(f'{"thread" + str(i + 1)}.start()')
-    # exec(f'{"thread" + str(i + 1)}.join()')
