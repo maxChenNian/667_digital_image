@@ -21,7 +21,7 @@ im = cv2.imread(im_path)
 # cv2.imwrite('im003_72dpi.bmp', im_resize)
 
 """
-INTER_NEAREST   最近邻插值
+最近邻插值
 
 INTER_LINEAR    双线性插值（默认设置）
 

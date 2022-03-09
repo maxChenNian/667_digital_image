@@ -45,6 +45,9 @@ def video_imshow(video_path, window_num):
         _, _, frame_v = cv2.split(frame_hsv)
         heat_img = cv2.applyColorMap(frame_v, cv2.COLORMAP_JET)
 
+        aaa = frame_v + 150
+        heat_img2 = cv2.applyColorMap(frame_v + 150, cv2.COLORMAP_JET)
+
         for ii in range(16):
             row_a = ii // 4
             col_b = ii % 4
@@ -67,6 +70,13 @@ def video_imshow(video_path, window_num):
                         1, (0, 0, 0), 1)
 
         # cv2.imshow(str(window_num + 1), heat_img)
+        if 1 <= window_num + 1 <= 4:
+            cv2.imshow(str(window_num + 1), heat_img)
+        elif window_num + 1 == 6:
+            cv2.imshow(str(window_num + 1), heat_img2)
+
+        else:
+            cv2.imshow(str(window_num + 1), frame)
 
         if cv2.waitKey(10) == 113:  # 点击q的时候退出
             # cv2.destroyAllWindows()
@@ -118,20 +128,25 @@ class myThread(threading.Thread):
         print("退出线程：" + self.threadID)
 
 
+# if __name__ == "__main__":
+#
+#     # 获取视频
+#     mp4_path = 'D:/000_download/11'
+#     mp4_file_list = sorted(pathlib.Path(mp4_path).glob("*.mp4"))
+#     cap_list = []
+#
+#     for i, path in enumerate(mp4_file_list):
+#         # print(f'{"thread" + str(i + 1)} = myThread(1, str(path), {str(i)})')
+#         exec(f'{"thread" + str(i + 1)} = myThread(1, str(path), {str(i)})')
+#         print(f'{"thread" + str(i + 1)}.start()')
+#
+#     for i in range(len(mp4_file_list)):
+#         exec(f'{"thread" + str(len(mp4_file_list) - i)}.start()')
+#
+#     for i in range(len(mp4_file_list)):
+#         exec(f'{"thread" + str(i + 1)}.join()')
+
 if __name__ == "__main__":
+    # 测试图像
+    pass
 
-    # 获取视频
-    mp4_path = 'D:/000_download/11'
-    mp4_file_list = sorted(pathlib.Path(mp4_path).glob("*.mp4"))
-    cap_list = []
-
-    for i, path in enumerate(mp4_file_list):
-        # print(f'{"thread" + str(i + 1)} = myThread(1, str(path), {str(i)})')
-        exec(f'{"thread" + str(i + 1)} = myThread(1, str(path), {str(i)})')
-        print(f'{"thread" + str(i + 1)}.start()')
-
-    for i in range(len(mp4_file_list)):
-        exec(f'{"thread" + str(len(mp4_file_list) - i)}.start()')
-
-    for i in range(len(mp4_file_list)):
-        exec(f'{"thread" + str(i + 1)}.join()')
