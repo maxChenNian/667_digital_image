@@ -11,6 +11,8 @@ import cv2
 import numpy as np
 
 # cap0 = cv2.VideoCapture('D:/000_download/11/001.mp4')
+# nihao
+
 
 cap1 = cv2.VideoCapture(0)
 # cap2 = cv2.VideoCapture(0)
