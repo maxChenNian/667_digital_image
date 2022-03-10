@@ -58,3 +58,6 @@ while cap1.isOpened():
     if cv2.waitKey(10) == 113:  # 点击q的时候退出
         cv2.destroyAllWindows()
         break
+
+#         nihao
+# 我们
